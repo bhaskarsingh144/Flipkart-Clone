@@ -2,7 +2,8 @@ import {AppBar , Toolbar ,Typography , Box} from '@mui/material' //tYPOGRAPHY(MU
 import {styled} from '@mui/material/styles'
 
 //Components
-import Search from '../Search/Search'
+import CustomButton from './CustomButtons'
+import Search from './Search' //sEARCH COMPONENT
 
 //OverRiding CSS
 const StyledHeader= styled(AppBar)`
@@ -30,7 +31,7 @@ let Header = () => {
     return (
    
         <StyledHeader>
-            <Toolbar>
+            <Toolbar style={{minHeight :55}}>
                 <Component>
                 <img src={logoURL} alt='logo' style ={{width: 75}} />
                 <Box style ={{ display :'flex'}}>
@@ -40,6 +41,10 @@ let Header = () => {
                         <Plusimage src={subURL} alt='sub-logo'></Plusimage>
                </Box>
                </Component>
+               <Search/>
+               <Box>
+                   <CustomButton/>
+               </Box>
             </Toolbar>
         </StyledHeader>
     

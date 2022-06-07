@@ -25,7 +25,7 @@ padding:5px ;
 const Search= () => {
     return (
         <SearchContainer>
-            <InputSearchBase placeholder='Search for Products, Brands and more.'/>
+            <InputSearchBase placeholder=' Search for Products, Brands and more.'/>
             <SearchIconWrapper>
                 <SearchIcon/>
             </SearchIconWrapper>

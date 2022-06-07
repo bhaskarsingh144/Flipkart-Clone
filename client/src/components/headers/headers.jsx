@@ -18,6 +18,9 @@ const SubHeading=styled(Typography)`
 font-size: 10px;    
 font-style: Italic;
 `
+const CustomButtonWrapper=styled(Box)`
+margin : 0 5% 0 auto; 
+`
 //HERE <IMG> IN NOT MUI COMPONET HENCE OVERRIDING IS DIFFERENT
 const Plusimage =styled('img')({
     width:10,
@@ -38,16 +41,17 @@ let Header = () => {
                     <SubHeading>Explore&nbsp;
                         <Box component='span' style={{ color:'#FFE500'}}>Plus</Box> 
                         </SubHeading>
-                        <Plusimage src={subURL} alt='sub-logo'></Plusimage>
+                        <Plusimage src={subURL} alt='sub-logo'/>
                </Box>
                </Component>
                <Search/>
-               <Box>
+               <CustomButtonWrapper>
                    <CustomButton/>
-               </Box>
+               </CustomButtonWrapper>
             </Toolbar>
         </StyledHeader>
     
     )
 }
 export default Header
+

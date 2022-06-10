@@ -6,7 +6,7 @@ const SearchContainer= styled(Box)`
 background:#fff;
 width:38%;
 border-radius: 2px;
-margin-left: 10px;
+margin-left: 25px;
 display:flex;
 `
 //const StyledSearchIcon =styled(SearchIcon)'
@@ -21,6 +21,7 @@ font-size: unset;
 const SearchIconWrapper = styled(Box)`
 color:blue;
 padding:5px ;
+display : flex;
 `
 const Search= () => {
     return (

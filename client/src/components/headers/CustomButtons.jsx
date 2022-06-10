@@ -7,7 +7,7 @@ display : flex;
 margin :0 3% auto;
 & > button, & > p ,& > div{
     margin-right: 40px;
-    font-size : 14px;
+    font-size : 15px;
     align-items : centre;
 }
 `

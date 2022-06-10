@@ -6,14 +6,14 @@ import { Box , styled } from "@mui/system";
 import {Fragment} from 'react'
 
 const Component= styled(Box)`
-padding : 10 px 20 px;
-background :#F2F2F2;
+padding : 10px ;
+background : #F2F2F2
 `
 const Home = () =>{
     return (                     
         <Fragment>
         <NavBar/>
-        <Component >
+        <Component>
         <Banner/>
         </Component>
        

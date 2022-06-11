@@ -2,7 +2,7 @@
 import express from "express";
 import Connection from "./database/db.js";
 import dotenv from 'dotenv'
-
+import DefaultData from "./default.js";
 
 const app=express()
 
@@ -19,4 +19,6 @@ Connection(USERNAME,PASSWARD);
 
 
 app.listen(PORT , ()=> console.log("Server is runnnig on port"));
+
+DefaultData();
 

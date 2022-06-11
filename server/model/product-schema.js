@@ -22,6 +22,6 @@ tagline:String
  //Similar to how Mysql where we create new DB using CREATE DATABSE "NAME" , her we have to create new Database
    // in MongoDb. Its called collection in mongo db
 
-   const Product = mongoose.model('product',productschema)
+   const Product = mongoose.model('product',productschema);
 
    export default Product;

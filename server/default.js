@@ -3,10 +3,11 @@
 import Product from "./model/product-schema.js";
 import { products } from "./database/constants/data.js";
 
-const DefaultData = ()=> {
+const DefaultData = async ()=> {
     try{
-        Product.insertMany(products) // products is the main object in data.js
-        console.log("Data Imported Successfully")
+        await Product.deleteMany({});
+       await Product.insertMany(products) ;// products is the main object in data.js
+        console.log("Data Imported Successfully");
 
     }
     catch(error){

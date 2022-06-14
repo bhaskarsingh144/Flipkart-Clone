@@ -1,6 +1,8 @@
 import {Box , Button , Typography , styled} from '@mui/material';
 import { ShoppingCart } from '@mui/icons-material';
+import LoginDialog from '../Login/LoginDialoge';
 
+import { useState } from 'react'; //hooks for login button
 
 const  Wrapper =styled(Box)`
 display : flex;
@@ -27,9 +29,17 @@ height : 32px;
 
 
 const CustomButton = () => {
+
+    const [open, setOpen]= useState(false); // hook setup to change dialog open state 
+
+    // this function is passed in the  the onClick jsx function
+    const openDialog = ()=> {
+        setOpen(true);
+    }
+
     return (
         <Wrapper>
-            <LoginButton variant='contained'>Login</LoginButton>
+            <LoginButton variant='contained' onClick={()=>openDialog()} > Login </LoginButton>
             <Typography style={{ marginTop : 3 , width : 135}}>Become a seller</Typography>
 
             <Typography style={{ marginTop : 3 }}>More</Typography>
@@ -38,6 +48,7 @@ const CustomButton = () => {
                 <ShoppingCart/>
                 <Typography>Cart</Typography>
             </Container>
+            <LoginDialog open={open} setOpen={setOpen} />
 
         </Wrapper>
     )

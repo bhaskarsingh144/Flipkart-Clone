@@ -3,12 +3,16 @@ import express from "express";
 import Connection from "./database/db.js";
 import dotenv from 'dotenv'
 import DefaultData from "./default.js";
+// cors us cross origin resource sharing
+import cors from 'cors'
 
 const app=express()
 
 dotenv.config();  // SETUP DOTENV LIB FOR SAFELY STORING PASSWARDS
 
 const PORT=8000;
+
+app.use(cors());
 
 // WRITING PASSWARD DIRECTLY IN CODE IS BAD PRACTICE HENCE WE USE ENV LIB TO CONTAIN TH DB CONNECTION PASS
 // PASSWARD IS STORED IN .ENV FILE AND THIS FILEIS NEVER PUSHED DURING DEPLOYMENT

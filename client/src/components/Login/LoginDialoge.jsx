@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Dialog, DialogContent, TextField, Box, Button, Typography, styled } from '@mui/material';
+import { authenticateLogin , authenticateSignup } from '../../service/api';
 
 
 //                       ...................CSS OVERRIDING.....................
@@ -64,7 +65,7 @@ const loginInitialValues = {
     username: '',
     password: ''
 };
-
+// object for initial values for signup text fields. Blank Initially
 const signupInitialValues = {
     firstname: '',
     lastname: '',
@@ -86,10 +87,11 @@ const accountInitialValues = {
     }
 }
 //                                ..............MAIN COMPONENT.....................
+//........................................................................................................................................
 
 const LoginDialog = ({ open, setOpen, setAccount }) => {
     const [ login, setLogin ] = useState(loginInitialValues);
-    const [ signup, setSignup ] = useState(signupInitialValues);
+    const [ signup, setSignup ] = useState(signupInitialValues);// this state is used to store the values inputted by user on TF
     const [ error, showError] = useState(false);
     const [ account, toggleAccount ] = useState(accountInitialValues.login);
 
@@ -159,6 +161,8 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
         // THIS WRAPPER IF FOR NEW USER PAGE IN THE DIALOG ON LOGIN BUTTON
         // Here onchange function is used to fetch data inputted by the user, the value is obtained form the event
         // hence we pass 'e"
+        // here the name field is used to differentiage between text-fields so we dont have to write and call different functions for
+        // for each fields. so insted of "target.value.view" our input test will be in "target.value.name"
         <Wrapper>  
             
             <TextField variant="standard" onChange={(e) => onInputChange(e)} name='firstname' label='Enter Firstname'/>

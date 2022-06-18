@@ -7,10 +7,11 @@ import { authenticateLogin , authenticateSignup } from '../../service/api';
 
 //                       ...................CSS OVERRIDING.....................
 const Component = styled(DialogContent)`
-    height: 70vh; 
-    width: 90vh;
+    height: 80vh; 
+    width: 83vh;
     padding: 0;
     padding-top: 0;
+
 `;
 const LoginButton = styled(Button)`
     text-transform: none;
@@ -36,12 +37,15 @@ const Text = styled(Typography)`
 // for the left  login dialog image
 const Image = styled(Box)`
     background: #2874f0 url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png) center 85% no-repeat;
-    width: 40%;
-    height: 100%;
-    padding: 45px 35px;
-   
+    width: 25%;
+    height: 83%;
+    padding: 210.5px 45px;
+    & > p , & > h5 {
+        color: #FFFFFFF;
+        font-weight :600;
     }
-`;
+`
+
 const Wrapper = styled(Box)`
     padding: 25px 35px;
     display: flex;
@@ -93,15 +97,18 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
     const [ login, setLogin ] = useState(loginInitialValues);
     const [ signup, setSignup ] = useState(signupInitialValues);// this state is used to store the values inputted by user on TF
     const [ error, showError] = useState(false);
-    const [ account, toggleAccount ] = useState(accountInitialValues.login);
+    // used to change the state of the login dialog b/w login and signup. by default : LOGIN on click New user button
+    // toggle account is called bt toggleSignup and accountInitialValues.signup is passed.
+    const [ account, toggleAccount ] = useState(accountInitialValues.login); 
 
     const onValueChange = (e) => {
         setLogin({ ...login, [e.target.name]: e.target.value });
     }
     // GET VALUE THAT THE USER INPUTS
    // when we type anything in the text field , it triggers an event . iF WE GO TO EVENT THEN TARGET THEN value then this
-   // value field contains the what has been typed in the text field hence e.target.value . we can consolelog this as well to verify
+   // value field contains the what has been typed in the text field hence e.target.value we can consolelog this as well to verify
     const onInputChange = (e) => {
+        console.log(e)
         setSignup({ ...signup, [e.target.name]: e.target.value });
     }
 
@@ -136,8 +143,10 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
         toggleAccount(accountInitialValues.signup);  // on clicking new user button toggleSignup function is called which changes the state
     }
 
+// .....................................RETURN..................................................................
+
     return (
-       <Dialog open={open} onClose={handleClose}>
+       <Dialog open={open} onClose={handleClose}> 
         <Component>
         <Box style={{display : 'flex'}}>
         <Image>
@@ -159,7 +168,7 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
         </Wrapper>
         :
         // THIS WRAPPER IF FOR NEW USER PAGE IN THE DIALOG ON LOGIN BUTTON
-        // Here onchange function is used to fetch data inputted by the user, the value is obtained form the event
+        // Here onchange function is used to fetch data inputted by the user, the value is obtained from the event
         // hence we pass 'e"
         // here the name field is used to differentiage between text-fields so we dont have to write and call different functions for
         // for each fields. so insted of "target.value.view" our input test will be in "target.value.name"

@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from 'react';
 
 import { Dialog, DialogContent, TextField, Box, Button, Typography, styled } from '@mui/material';
+
 import { authenticateLogin , authenticateSignup } from '../../service/api';
+// authenticate function is called by the the signupUser function which is called by the onClick event on the Continue Button.
 
 
 //                       ...................CSS OVERRIDING.....................
@@ -108,8 +110,9 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
    // when we type anything in the text field , it triggers an event . iF WE GO TO EVENT THEN TARGET THEN value then this
    // value field contains the what has been typed in the text field hence e.target.value we can consolelog this as well to verify
     const onInputChange = (e) => {
-        console.log(e)
+
         setSignup({ ...signup, [e.target.name]: e.target.value });
+        console.log(signup);
     }
 
     const loginUser = async() => {
@@ -124,6 +127,7 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
     }
 
     const signupUser = async() => {
+// responsr contains the data retured by the api i.e authenticateSignup
         let response = await authenticateSignup(signup);
         if(!response) return;
         handleClose();
@@ -181,14 +185,11 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
             <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
             <TextField variant="standard" onChange={(e) => onInputChange(e)} name='phone' label='Enter Phone' />
             <LoginButton onClick={() => signupUser()} >Continue</LoginButton>
-            
-            
-
-            
-            
-            
 
         </Wrapper>
+        // here the LoginButton componet is for Continue Button. it called signupUser function which calls a api and transfers the 
+        // data inputted into the text field into the authentication process
+
         }
         </Box>
 

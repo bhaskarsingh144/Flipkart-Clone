@@ -3,16 +3,17 @@ import Home from './components/home/home';
 //components
 import Header from './components/headers/headers';
 import { Box } from '@mui/material';
+import DataProvider from './context/DataProvider';
 
 function App() {
   return (
-    <div >
+    <DataProvider>
       <Header/>            
       <Box style={{marginTop : 54 }}> 
                                                                        
      <Home/>
       </Box>
-    </div>
+    </DataProvider>
   );
 }
 

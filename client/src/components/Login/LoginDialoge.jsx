@@ -1,7 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Dialog, DialogContent, TextField, Box, Button, Typography, styled } from '@mui/material';
+import { DataContext } from '../../context/DataProvider';
 
 import { authenticateLogin , authenticateSignup } from '../../service/api';
 // authenticate function is called by the the signupUser function which is called by the onClick event on the Continue Button.
@@ -92,12 +93,17 @@ const accountInitialValues = {
         subHeading: 'Signup to get started'
     }
 }
-//                                ..............MAIN COMPONENT.....................
+//                                ..........................MAIN COMPONENT..............................
 //........................................................................................................................................
 
-const LoginDialog = ({ open, setOpen, setAccount }) => {
+const LoginDialog = ({ open, setOpen }) => {
     const [ login, setLogin ] = useState(loginInitialValues);
-    const [ signup, setSignup ] = useState(signupInitialValues);// this state is used to store the values inputted by user on TF
+    const [ signup, setSignup ] = useState(signupInitialValues);
+    const {setAccount} = useContext(DataContext);
+    // this state is used to store the values inputted by user on TF. It is initially set with signupInitialValues/loginInitialValues  which is empty.
+    // state is updated once the user passes data in the text fields and its sent to the
+    // we pass this state i.e signup in the authenticateSignup api which eventually sends the data of the  signupInitialValues/loginInitialValues
+    // in a post request for authentication of the backend.
     const [ error, showError] = useState(false);
     // used to change the state of the login dialog b/w login and signup. by default : LOGIN on click New user button
     // toggle account is called bt toggleSignup and accountInitialValues.signup is passed.
@@ -187,7 +193,7 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
             <LoginButton onClick={() => signupUser()} >Continue</LoginButton>
 
         </Wrapper>
-        // here the LoginButton componet is for Continue Button. it called signupUser function which calls a api and transfers the 
+        // here the LoginButton component is for Continue Button. it called signupUser function which calls a api and transfers the 
         // data inputted into the text field into the authentication process
 
         }

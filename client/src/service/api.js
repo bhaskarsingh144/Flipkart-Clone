@@ -1,15 +1,15 @@
 // USED FOR THE LOGIN AUTHENTICATION
 
-// axios helps in api calling. All API calls are asynchronous
+// axios helps in api calling. All API calls are asynchronous requests
 import axios from 'axios';
 
-const url = 'http://localhost:8000';
+const url = 'http://localhost:8000'; // server is running at port 8000
 
 export const authenticateLogin = async (user) => {
     try 
     {
         // we need to send the data filled in the text filed hence we go for post request.
-        return await axios.post(`${url}/login`, user)
+        return await axios.post(`${url}/login`, user)  // templete string is used. final url= http://localhost:8000/login
         // method takes two parameters "URL" and the data. URL is backend url end point login in this case.
     } catch (error) 
     {

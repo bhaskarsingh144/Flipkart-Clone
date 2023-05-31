@@ -1,12 +1,12 @@
-import {AppBar , Toolbar ,Typography , Box} from '@mui/material' //tYPOGRAPHY(MUI COMPONENT) DOES THE SAME THING AS HEADER TAGS 
-import {styled} from '@mui/material/styles'
+import { AppBar, Toolbar, Typography, Box } from '@mui/material' //tYPOGRAPHY(MUI COMPONENT) DOES THE SAME THING AS HEADER TAGS 
+import { styled } from '@mui/material/styles'
 
 //Components
 import CustomButton from './CustomButtons'
 import Search from './Search' //sEARCH COMPONENT
 
 //OverRiding CSS
-const StyledHeader= styled(AppBar)`
+const StyledHeader = styled(AppBar)`
 background: #2874f0;
 height: 55px;
 `
@@ -14,17 +14,17 @@ const Component = styled(Box)`
 margin-left: 12%;
 line-height: 0;
 `
-const SubHeading=styled(Typography)`
+const SubHeading = styled(Typography)`
 font-size: 10px;    
 font-style: Italic;
 `
-const CustomButtonWrapper=styled(Box)`
+const CustomButtonWrapper = styled(Box)`
 margin : 0 5% 0 auto; 
 `
 //HERE <IMG> IN NOT MUI COMPONET HENCE OVERRIDING IS DIFFERENT
-const Plusimage =styled('img')({
-    width:10,
-    height:10,
+const Plusimage = styled('img')({
+    width: 10,
+    height: 10,
     marginLeft: 4
 })
 let Header = () => {
@@ -32,25 +32,25 @@ let Header = () => {
     const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
     const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
     return (
-   
+
         <StyledHeader>
-            <Toolbar style={{minHeight :55}}>
+            <Toolbar style={{ minHeight: 55 }}>
                 <Component>
-                <img src={logoURL} alt='logo' style ={{width: 75}} />
-                <Box style ={{ display :'flex'}}>
-                    <SubHeading>Explore&nbsp;
-                        <Box component='span' style={{ color:'#FFE500'}}>Plus</Box> 
+                    <img src={logoURL} alt='logo' style={{ width: 75 }} />
+                    <Box style={{ display: 'flex' }}>
+                        <SubHeading>Explore&nbsp;
+                            <Box component='span' style={{ color: '#FFE500' }}>Plus</Box>
                         </SubHeading>
-                        <Plusimage src={subURL} alt='sub-logo'/>
-               </Box>
-               </Component>
-               <Search/>
-               <CustomButtonWrapper>
-                   <CustomButton/>
-               </CustomButtonWrapper>
+                        <Plusimage src={subURL} alt='sub-logo' />
+                    </Box>
+                </Component>
+                <Search />
+                <CustomButtonWrapper>
+                    <CustomButton />
+                </CustomButtonWrapper>
             </Toolbar>
         </StyledHeader>
-    
+
     )
 }
 export default Header
